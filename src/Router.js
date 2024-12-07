@@ -9,9 +9,26 @@ Remember to export the component at the end
 */
 
 import React from 'react'
-import { Routes, Route } from 'react-router'
+import { Routes, Route } from 'react-router-dom'
 // Write component imports here //
 
-
+import Home from './components/Home'
+import About from './components/About'
+import Car from './components/Car'
 
 // Start Router function here //
+
+const Router = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<Home/>}></Route>
+            <Route path="/about" element={<About/>}></Route>
+
+            {/* parameter name (id) should match the name you use in <Car/> (i.e. when you do const { id } = useParams()) */}
+            <Route path="/car/:id" element={<Car/>}></Route> 
+        </Routes>
+    )
+}
+
+export default Router
+
